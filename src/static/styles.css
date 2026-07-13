@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap");
+
 /* Color palette */
 :root {
   /* Primary colors */
@@ -36,11 +38,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Manrope", "Segoe UI", sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Manrope", "Segoe UI", sans-serif;
   line-height: 1.4;
   color: var(--text-primary);
   max-width: 1200px;
@@ -67,6 +69,7 @@ header {
 header h1 {
   margin-bottom: 5px;
   font-size: 1.6rem;
+  font-family: "Fraunces", Georgia, serif;
 }
 
 header h2 {
@@ -433,7 +436,8 @@ button {
 }
 
 .close-modal,
-.close-login-modal {
+.close-login-modal,
+.close-announcements-modal {
   position: absolute;
   right: 12px;
   top: 8px;
@@ -622,6 +626,7 @@ footer {
 #user-status {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 #user-info {
@@ -652,6 +657,181 @@ footer {
 
 .user-icon {
   font-size: 1rem;
+}
+
+.announcement-icon {
+  font-size: 1rem;
+}
+
+#announcement-banner {
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #fffdf5 0%, #ffe7c8 100%);
+  border: 1px solid #ffd8a8;
+  box-shadow: 0 12px 24px rgba(196, 62, 0, 0.08);
+}
+
+.announcement-banner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.announcement-banner-header h3 {
+  margin: 0;
+  border: none;
+  color: #7a2e00;
+}
+
+#announcement-banner-subtitle {
+  color: #9a5427;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+#announcement-banner-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.announcement-banner-card {
+  background-color: rgba(255, 255, 255, 0.86);
+  border: 1px solid #ffd7a1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 10px rgba(122, 46, 0, 0.08);
+}
+
+.announcement-message {
+  color: #41210e;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.announcement-metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #7b4c2f;
+  font-size: 0.75rem;
+}
+
+.announcements-modal-content {
+  max-width: 960px;
+  width: min(96vw, 960px);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.announcements-modal-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.announcements-manager-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 14px;
+}
+
+.announcement-list-panel,
+.announcement-form-panel {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background-color: #fbfcff;
+}
+
+.announcement-list-panel h4,
+.announcement-form-panel h4 {
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+#announcement-admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.announcement-admin-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+}
+
+.announcement-admin-message {
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.announcement-admin-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.announcement-admin-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.announcement-edit-button,
+.announcement-delete-button {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.announcement-edit-button {
+  background-color: #e8f0fe;
+  color: #18499f;
+  border: 1px solid #c8dcff;
+}
+
+.announcement-delete-button {
+  background-color: #fdebec;
+  color: #a11e2b;
+  border: 1px solid #f5c2c7;
+}
+
+#announcement-message {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.announcement-form-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.secondary-button {
+  background-color: #eff1f5;
+  color: var(--text-primary);
+}
+
+.announcement-empty-state {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .announcements-manager-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 #logout-button {

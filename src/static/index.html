@@ -17,6 +17,10 @@
       <h2>Extracurricular Activities</h2>
       <div id="user-controls">
         <div id="user-status">
+          <button id="manage-announcements-button" class="icon-button hidden" type="button">
+            <span class="announcement-icon">📣</span>
+            <span>Manage Announcements</span>
+          </button>
           <button id="login-button" class="icon-button">
             <span class="user-icon">👤</span>
             <span>Login</span>
@@ -30,6 +34,14 @@
     </header>
 
     <main>
+      <section id="announcement-banner" class="hidden" aria-live="polite">
+        <div class="announcement-banner-header">
+          <h3>School Announcements</h3>
+          <p id="announcement-banner-subtitle"></p>
+        </div>
+        <div id="announcement-banner-list"></div>
+      </section>
+
       <section id="activities-container">
         <div class="main-content-layout">
           <!-- Left Sidebar for Filters -->
@@ -101,7 +113,7 @@
     <!-- Registration Modal -->
     <div id="registration-modal" class="modal hidden">
       <div class="modal-content">
-        <span class="close-modal">&times;</span>
+        <span class="close-modal" id="close-registration-modal">&times;</span>
         <h3>Register for <span id="modal-activity-name"></span></h3>
         <form id="signup-form">
           <div class="form-group">
@@ -111,6 +123,60 @@
           <input type="hidden" id="activity" value="" />
           <button type="submit">Register</button>
         </form>
+      </div>
+    </div>
+
+    <!-- Announcements Management Modal -->
+    <div id="announcements-modal" class="modal hidden">
+      <div class="modal-content announcements-modal-content">
+        <span class="close-announcements-modal">&times;</span>
+        <h3>Manage Announcements</h3>
+        <p class="announcements-modal-subtitle">
+          Add, edit, or remove announcements visible to everyone.
+        </p>
+
+        <div id="announcements-manager-message" class="hidden message"></div>
+
+        <div class="announcements-manager-layout">
+          <div class="announcement-list-panel">
+            <h4>Existing announcements</h4>
+            <div id="announcement-admin-list"></div>
+          </div>
+
+          <div class="announcement-form-panel">
+            <h4 id="announcement-form-title">Add new announcement</h4>
+            <form id="announcement-form">
+              <input type="hidden" id="announcement-id" value="" />
+
+              <div class="form-group">
+                <label for="announcement-message">Message</label>
+                <textarea
+                  id="announcement-message"
+                  required
+                  maxlength="500"
+                  placeholder="Share an important update with students and staff..."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="announcement-start">Start date (optional)</label>
+                <input type="datetime-local" id="announcement-start" />
+              </div>
+
+              <div class="form-group">
+                <label for="announcement-end">Expiration date</label>
+                <input type="datetime-local" id="announcement-end" required />
+              </div>
+
+              <div class="announcement-form-actions">
+                <button type="submit" id="announcement-save-button">Save announcement</button>
+                <button type="button" id="announcement-cancel-edit" class="secondary-button hidden">
+                  Cancel edit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
